@@ -1,0 +1,55 @@
+#include <stdio.h>
+
+#define LINHAS 5  // Número de linhas do tabuleiro
+#define COLUNAS 5 // Número de colunas do tabuleiro
+
+int main() {
+    // Tabuleiro representado por uma matriz de inteiros
+    int tabuleiro[LINHAS][COLUNAS] = {0};
+
+    // Posição inicial do navio vertical
+    int navioV_x = 1; // coluna fixa
+    int navioV_y = 0; // começa na linha 0
+
+    // Tamanho do navio vertical
+    int tamanhoV = 3;
+
+    // Posiciona o navio vertical (ocupa 3 linhas na mesma coluna)
+    for (int i = 0; i < tamanhoV; i++) {
+        tabuleiro[navioV_y + i][navioV_x] = 1; // marca com 1
+    }
+
+    // Posição inicial do navio horizontal
+    int navioH_x = 2; // linha fixa
+    int navioH_y = 1; // começa na coluna 1
+
+    // Tamanho do navio horizontal
+    int tamanhoH = 4;
+
+    // Posiciona o navio horizontal (ocupa 4 colunas na mesma linha)
+    for (int j = 0; j < tamanhoH; j++) {
+        tabuleiro[navioH_x][navioH_y + j] = 2; // marca com 2
+    }
+
+    // Exibe as coordenadas dos navios
+    printf("Coordenadas do Navio Vertical (marcado com 1):\n");
+    for (int i = 0; i < tamanhoV; i++) {
+        printf("(%d, %d)\n", navioV_y + i, navioV_x);
+    }
+
+    printf("\nCoordenadas do Navio Horizontal (marcado com 2):\n");
+    for (int j = 0; j < tamanhoH; j++) {
+        printf("(%d, %d)\n", navioH_x, navioH_y + j);
+    }
+
+    // Exibe o tabuleiro final (opcional)
+    printf("\nTabuleiro (matriz):\n");
+    for (int i = 0; i < LINHAS; i++) {
+        for (int j = 0; j < COLUNAS; j++) {
+            printf("%d ", tabuleiro[i][j]);
+        }
+        printf("\n");
+    }
+
+    return 0;
+}
